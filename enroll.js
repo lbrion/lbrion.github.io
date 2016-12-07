@@ -177,25 +177,7 @@ var main = function() {
     });
     printStats(students);
     **/
-    newCourses = genCourses();
-    newStudents = genStudents();
-    newStudents.forEach(function (s) {
-        s.choosePrefs(newCourses);
-    });
-    while (newStudents.map(function (obj) { return obj.canEnroll; }).indexOf(true) > -1) {
-        newStudents.forEach(function (s) {
-            if (s.canEnroll) {
-                s.enrollOnce(newCourses);
-            }
-        });
-    }
-    newStudents.forEach(function (s) {
-        s.dropCourse();
-    });
-    printStats(newStudents);
 }
-
-main();
 
 
 
