@@ -157,7 +157,7 @@ var printStats = function(students) {
         }
     });
 
-    appendToOutput(stats);
+    return Object.values(stats)
 }
 
 var runSimulation = function() {
@@ -183,7 +183,8 @@ var runSimulation = function() {
         }
         s.dropCourse();
     });
-    printStats(students);
+    appendToOutput("Old Stanford System");
+    stats1 = printStats(students);
 
     newCourses = genCourses();
     newStudents = genStudents();
@@ -200,7 +201,56 @@ var runSimulation = function() {
     newStudents.forEach(function (s) {
         s.dropCourse();
     });
-    printStats(newStudents);
+    appendToOutput("New Stanford System");
+    stats2 = printStats(newStudents);
+
+    two_plots(stats1, stats2)
+}
+
+function two_plots(data1, data2) {
+    // set the dimensions and margins of the graph
+    graph = document.getElementById('graph1')
+    if (graph.firstChild != null) {
+
+    while (graph.firstChild) {
+        graph.removeChild(graph.firstChild)
+    }
+       
+    }
+
+    data = data1
+
+    var x = d3.scaleLinear()
+        .domain([0, d3.max(data)])
+        .range([0, 420]);
+
+    d3.select(".chart1")
+      .selectAll("div")
+        .data(data)
+      .enter().append("div")
+        .style("width", function(d) { return x(d) + "px"; })
+        .text(function(d) { return d; });
+
+    graph = document.getElementById('graph2')
+    if (graph.firstChild != null) {
+
+    while (graph.firstChild) {
+        graph.removeChild(graph.firstChild)
+    }
+       
+    }
+    data = data2
+
+    var x = d3.scaleLinear()
+        .domain([0, d3.max(data)])
+        .range([0, 420]);
+
+    d3.select(".chart2")
+      .selectAll("div")
+        .data(data)
+      .enter().append("div")
+        .style("width", function(d) { return x(d) + "px"; })
+        .text(function(d) { return d; });
 }
 
 

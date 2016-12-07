@@ -4,12 +4,35 @@
 <head>
 	<style>
 	#input{
+		width: 300px;
 		float: left;
 	}
 	#output{
-		height: 200px;
-		width: 50%;
+		height: 350px;
+		width: 400px;
 	}
+	#graph{
+		width: 400px;
+	}
+
+	body {
+	  font: 10px sans-serif;
+	  margin: 0;
+	}
+
+	.line {
+	  fill: none;
+	  stroke: #666;
+	  stroke-width: 1.5px;
+	}
+
+	.chart1 div {
+	  background-color: steelblue;
+	}
+	.chart2 div {
+	  background-color: rgb(189, 32, 49);
+	}
+
 	</style>
 </head>
 <body>
@@ -29,7 +52,10 @@
 		<input id="run" type="button" value="Run Simuation" onclick="runSimulation()"/>
 	</div>
 	<textarea id="output"></textarea>
+	<div id="graph1" class="chart1"></div>
+	<div id="graph2" class="chart2"></div>
 
 	</div>
+	<script src="http://d3js.org/d3.v4.min.js"></script>
 	<script src="enroll.js" type="text/javascript"></script>
 </body>
