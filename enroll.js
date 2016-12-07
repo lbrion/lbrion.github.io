@@ -229,7 +229,7 @@ function two_plots(data1, data2) {
         .data(data)
       .enter().append("div")
         .style("width", function(d) { return x(d) + "px"; })
-        .text(function(d) { return d; });
+        .text(function(d, i) { return i + ": " + d; });
 
     graph = document.getElementById('graph2')
     if (graph.firstChild != null) {
@@ -246,7 +246,7 @@ function two_plots(data1, data2) {
         .data(data)
       .enter().append("div")
         .style("width", function(d) { return x(d) + "px"; })
-        .text(function(d) { return d; });
+        .text(function(d, i) { return i + ": " + d; });
 }
 
 
