@@ -184,6 +184,7 @@ var runSimulation = function() {
         s.dropCourse();
     });
     appendToOutput("Old Stanford System");
+    appendToOutput("------------------------------");
     stats1 = printStats(students);
 
     newCourses = genCourses();
@@ -201,7 +202,9 @@ var runSimulation = function() {
     newStudents.forEach(function (s) {
         s.dropCourse();
     });
+    appendToOutput("\n");
     appendToOutput("New Stanford System");
+    appendToOutput("------------------------------");
     stats2 = printStats(newStudents);
 
     two_plots(stats1, stats2)
