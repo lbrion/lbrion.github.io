@@ -44,16 +44,50 @@
 </head>
 <body>
 	<div id="explanation">
-		<p>This simulates the old Stanford course selection method over our new proposed method.</p>
+    <p>This simulates the old Stanford course selection method over our new
+    proposed method. The parameters below allow you to tweak the range over
+    which the random attributes for each student and course are sampled. Note
+    that the variables are sampled from a normal distribution based on the given
+    parameters.</p>
 		<p>The output metrics are explained as follows:</p>
 		<ul>
-			<li>Success Rate: Attempted enrollments in non-full classes.
-			<li>Full Rate: Attempted enrollments in full classes.
-			<li>Drop Rate: Percent of slots in enrolled classes that a student chose to drop.
-			<li>Pareto Inefficiency: Percentage of classes that a student could have gotten into that was dropped by someone else had the other student not enrolled in the first place.
+      <li>Success Rate: Attempted enrollments in non-full classes.</li>
+        <li>Full Rate: Attempted enrollments in full classes.</li>
+      <li>Drop Rate: Percent of slots in enrolled classes that a student chose
+        to drop.</li>
+      <li>Pareto Inefficiency: Percentage of classes that a student could have
+        gotten into that was dropped by someone else had the other student not
+        enrolled in the first place.</li>
 		</ul>
-		<p>For the generate graphs, each column represents the number of filled classes encountered before successfully enrolling per student over all enrollment attempts. Notice the above statistics are similar in the default case, however the distributions in the graphs below differ. The distrbution for the new system tends to be more centralized meaning the number of students that encounter a lot trouble enrolling is lowered at the expense of those who don't encounter any trouble which shows that the new system is more equitable.</p>
-		<p>Courses and students are generated randomly with the parameters outlined in the simulation.</p>
+    <p>The old mechanism proceeds in the following fashion:</p>
+    <ul>
+      <li>Students determine a preference list at random.</li>
+      <li>Students are ordered arbitrarily.</li>
+      <li>The list of students is enumerated over based on their assigned
+        ordering. For each student, that student enrolls in the classes they
+        desire until they reach their unit cap. If a student encounters a class
+      that is full, they skip it and try the next.</li>
+      <li>Each student drops a random class with 50% probability.</li>
+    </ul>
+    <p>The new mechanism proceeds in the following fashion:</p>
+    <ul>
+      <li>Students determine a preference list at random.</li>
+      <li>Students are ordered arbitrarily.</li>
+      <li>The list of students is enumerated over based on their assigned
+        ordering. For each student, that student enrolls in their most preferred
+      class that has space. If the student reaches their desired unit count or
+      runs out of courses in their preference list, they are removed from the
+      list.</li>
+      <li>The previous step occurs until all students are removed from the list.</li>
+      <li>Each student drops a random class with 50% probability.</li>
+    </ul>
+		<p>For the generate graphs, each column represents the number of filled
+    classes encountered before successfully enrolling per student over all
+    enrollment attempts. Notice the above statistics are similar in the default
+    case, however the distributions in the graphs below differ. The distrbution
+    for the new system tends to be more centralized meaning the number of
+    students that encounter a lot trouble enrolling is lowered at the expense of
+    those who don't encounter any trouble, showing that the new system is more equitable.</p>
 	</div>
 	<div id="input">
 		<p title="Number of courses used in simulation">Number of Courses: <input type="text" id="num_courses" value="400"> </p>
