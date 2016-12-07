@@ -221,8 +221,8 @@ function two_plots(data1, data2) {
     data = data1
 
     var x = d3.scaleLinear()
-        .domain([0, d3.max(data)])
-        .range([0, 420]);
+        .domain([0, d3.max(data1.concat(data2))])
+        .range([0, 400]);
 
     d3.select(".chart1")
       .selectAll("div")
@@ -240,10 +240,6 @@ function two_plots(data1, data2) {
        
     }
     data = data2
-
-    var x = d3.scaleLinear()
-        .domain([0, d3.max(data)])
-        .range([0, 420]);
 
     d3.select(".chart2")
       .selectAll("div")
