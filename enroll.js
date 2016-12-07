@@ -1,18 +1,23 @@
-const NUM_COURSES = 10
-const MIN_COURSE_SIZE = 10
-const MAX_COURSE_SIZE = 25
-const MIN_COURSE_UNITS = 1
-const MAX_COURSE_UNITS = 5
+var NUM_COURSES = 100
+var MIN_COURSE_SIZE = 10
+var MAX_COURSE_SIZE = 100
+var MIN_COURSE_UNITS = 1
+var MAX_COURSE_UNITS = 5
 
-const NUM_STUDENTS = 25
-const MIN_NUM_UNITS = 12
-const MAX_NUM_UNITS = 16
-const MIN_NUM_COURSES = 3
-const MAX_NUM_COURSES = 6
-const PREFS_LEN = 10
+var NUM_STUDENTS = 1000
+var MIN_NUM_UNITS = 12
+var MAX_NUM_UNITS = 16
+var MIN_NUM_COURSES = 3
+var MAX_NUM_COURSES = 6
+var PREFS_LEN = 10
 
-const MIN_TIME = 0
-const MAX_TIME = 100
+var MIN_TIME = 0
+var MAX_TIME = 100
+
+function appendToOutput(text) {
+  document.getElementById('output').value += text;
+  document.getElementById('output').value += '\n'; 
+}
 
 function randint(min, max) {
   min = Math.ceil(min);
@@ -26,8 +31,6 @@ class Course {
         this.size = 0;
         this.cap = randint(MIN_COURSE_SIZE, MAX_COURSE_SIZE);
         this.units = randint(MIN_COURSE_UNITS, MAX_COURSE_UNITS);
-        this.enrolled = [];
-        this.waitlist = [];
     }
 
     hasSpace() {
@@ -36,14 +39,6 @@ class Course {
 
     select() {
         this.size++;
-    }
-
-    addEnrolled(student) {
-        this.enrolled.push(student);
-    }
-
-    addWaitlist(student) {
-        this.waitlist.push(student);
     }
 }
 
@@ -66,6 +61,9 @@ class Student {
     choosePrefs(courses) {
         for (var i = 0; i < PREFS_LEN; i++) {
             var choice = courses[randint(0, courses.length - 1)];
+            while (this.desiredCourses.indexOf(choice) > -1) {
+                choice = courses[randint(0, courses.length - 1)];
+            }
             this.desiredCourses.push(choice);
         }
     }
@@ -77,11 +75,9 @@ class Student {
             if (this.hasSpace(choice)) {
                 if (choice.hasSpace()) {
                     choice.select();
-                    choice.addEnrolled(this);
                     this.enrolledCourses.push(choice);
                     return;
                 } else {
-                    choice.addWaitlist(this);
                     this.filledCourses.push(choice);
                 }
             }
@@ -134,9 +130,9 @@ var printStats = function(students) {
 
     var total = success + full + drop;
 
-    console.log("Success rate: " + (success / total * 100));
-    console.log("Full rate: " + (full / total * 100));
-    console.log("Drop rate: " + (drop / total * 100));
+    appendToOutput("Success rate: " + (success / total * 100));
+    appendToOutput("Full rate: " + (full / total * 100));
+    appendToOutput("Drop rate: " + (drop / total * 100));
 
     var pareto = 0;
     students.forEach(function (s) {
@@ -150,7 +146,7 @@ var printStats = function(students) {
         });
     });
 
-    console.log("Pareto inefficiency: " + (pareto / total * 100));
+    appendToOutput("Pareto inefficiency: " + (pareto / total * 100));
 
     var stats = {};
     students.forEach(function (s) {
@@ -161,11 +157,23 @@ var printStats = function(students) {
         }
     });
 
-    console.log(stats);
+    appendToOutput(stats);
 }
 
-var main = function() {
-    /**
+var runSimulation = function() {
+    document.getElementById('output').value = '';
+    NUM_COURSES = document.getElementById('num_courses').value
+    MIN_COURSE_SIZE = document.getElementById('min_course_size').value
+    MAX_COURSE_SIZE = document.getElementById('max_course_size').value
+    MIN_COURSE_UNITS = document.getElementById('min_course_unit').value
+    MAX_COURSE_UNITS = document.getElementById('max_course_unit').value
+
+    NUM_STUDENTS = document.getElementById('num_students').value
+    MIN_NUM_UNITS = document.getElementById('min_student_units').value
+    MAX_NUM_UNITS = document.getElementById('max_student_units').value
+    MIN_NUM_COURSES = document.getElementById('min_student_courses').value
+    MAX_NUM_COURSES = document.getElementById('max_student_courses').value
+
     courses = genCourses();
     students = genStudents();
     students.forEach(function (s) {
@@ -176,7 +184,23 @@ var main = function() {
         s.dropCourse();
     });
     printStats(students);
-    **/
+
+    newCourses = genCourses();
+    newStudents = genStudents();
+    newStudents.forEach(function (s) {
+        s.choosePrefs(newCourses);
+    });
+    while (newStudents.map(function (obj) { return obj.canEnroll; }).indexOf(true) > -1) {
+        newStudents.forEach(function (s) {
+            if (s.canEnroll) {
+                s.enrollOnce(newCourses);
+            }
+        });
+    }
+    newStudents.forEach(function (s) {
+        s.dropCourse();
+    });
+    printStats(newStudents);
 }
 
 
