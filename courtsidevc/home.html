@@ -34,23 +34,7 @@
         <!-- END COMPANY LOGO -->
 
       </div>
-      <div class="collapse navbar-collapse" id="menu">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              Menu
-            </a>
 
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
     </div>
   </nav>
 
@@ -404,6 +388,63 @@
     </div>
   </section>
 
+  <section>
+    <div class="col-md-6">
+      <div id="map" class="map"></div>
+    </div>
+    <div class="col-md-6">
+      <div id="map2" class="map"></div>
+    </div>
+    <script>
+        function initMap() {
+          var geocoder = new google.maps.Geocoder();
+          geocoder.geocode({
+            'address': "1555 Broadway Street,Detroit, MI"
+          }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+              var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 15,
+                  center: results[0].geometry.location,
+                  gestureHandling: "none",
+                  draggable: false,
+                  zoomControl: false,
+                  scrollwheel: false,
+                  disableDoubleClickZoom: true
+                }),
+                marker = new google.maps.Marker({
+                  map: map,
+                  position: results[0].geometry.location
+                });
+            }
+          });
+
+          var geocoder = new google.maps.Geocoder();
+          geocoder.geocode({
+            'address': "148 W 24th Street, New York, NY"
+          }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+              var map2 = new google.maps.Map(document.getElementById('map2'), {
+                  zoom: 15,
+                  center: results[0].geometry.location,
+                  gestureHandling: "none",
+                  draggable: false,
+                  zoomControl: false,
+                  scrollwheel: false,
+                  disableDoubleClickZoom: true
+                }),
+                marker = new google.maps.Marker({
+                  map: map2,
+                  position: results[0].geometry.location
+                });
+            }
+          });
+        }
+      </script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrvzleMXOu1kOQGoAJNNjd-6OxEvzeCIE&callback=initMap"></script>
+
+
+
+  </section>
 </body>
 <footer>
   Copyright © 2017 CourtsideVC. All Rights Reserved.
