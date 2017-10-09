@@ -1,7 +1,3 @@
-.raptortext {
-  font-family: Seravek, Arial, Helvetica, sans-serif;
-}
-
 /** CLEARFIX **/
 
 .clearfix:after {
@@ -156,8 +152,4 @@ img {
 .navbar-brand {
   padding-top: 10px;
   padding-left: 10px;
-}
-
-.navbar {
-  background-color: white;
 }
