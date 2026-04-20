@@ -16,15 +16,8 @@
       --text: #1a1a1a;
       --muted: #6b6b6b;
       --accent: #2563eb;
-      --accent-hover: #1d4ed8;
-      --tag-bg: #f0f0ec;
-      --tag-text: #4b4b4b;
-      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
-      --shadow-hover: 0 4px 12px rgba(0,0,0,0.1), 0 12px 32px rgba(0,0,0,0.06);
       --radius: 12px;
     }
-
-    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
@@ -34,7 +27,6 @@
       min-height: 100vh;
     }
 
-    /* Header */
     header {
       padding: 72px 24px 64px;
       max-width: 860px;
@@ -53,11 +45,10 @@
     .bio {
       font-size: 1.05rem;
       color: var(--muted);
-      max-width: 520px;
+      max-width: 480px;
       line-height: 1.7;
     }
 
-    /* Section */
     main {
       max-width: 860px;
       margin: 0 auto;
@@ -73,94 +64,23 @@
       margin-bottom: 24px;
     }
 
-    /* Project Grid */
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 16px;
-      margin-bottom: 60px;
     }
 
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
+    /* Placeholder card shown when no projects exist yet */
+    .empty-state {
+      grid-column: 1 / -1;
+      border: 1px dashed var(--border);
       border-radius: var(--radius);
-      padding: 28px;
-      text-decoration: none;
-      color: inherit;
-      box-shadow: var(--shadow);
-      transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .card:hover {
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
-      border-color: #d0d0cc;
-    }
-
-    .card-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .card-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.3;
-    }
-
-    .card-icon {
-      font-size: 1.2rem;
-      flex-shrink: 0;
-      opacity: 0.85;
-    }
-
-    .card-desc {
-      font-size: 0.875rem;
+      padding: 48px 32px;
+      text-align: center;
       color: var(--muted);
-      line-height: 1.65;
-      flex: 1;
+      font-size: 0.9rem;
     }
 
-    .card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
-    }
-
-    .tag {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      padding: 3px 9px;
-      border-radius: 99px;
-    }
-
-    /* Arrow link indicator */
-    .card-arrow {
-      font-size: 0.8rem;
-      color: var(--accent);
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      margin-top: 4px;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-
-    .card:hover .card-arrow { opacity: 1; }
-
-    /* Footer */
     footer {
       border-top: 1px solid var(--border);
       max-width: 860px;
@@ -176,7 +96,6 @@
     .footer-name {
       font-size: 0.875rem;
       font-weight: 500;
-      color: var(--text);
     }
 
     .footer-links {
@@ -196,7 +115,6 @@
     @media (max-width: 480px) {
       header { padding: 48px 20px 40px; }
       main { padding: 0 20px 64px; }
-      .projects { grid-template-columns: 1fr; }
       footer { padding: 24px 20px; }
     }
   </style>
@@ -205,118 +123,19 @@
 
   <header>
     <h1 class="name">Louis Brion</h1>
-    <p class="bio">Developer and designer building tools for investors, creators, and institutions. A collection of projects spanning dashboards, simulations, and web experiences.</p>
+    <p class="bio">Projects coming soon.</p>
   </header>
 
   <main>
     <p class="section-label">Projects</p>
     <div class="projects">
-
-      <a class="card" href="/courtsidevc/index.html">
-        <div class="card-header">
-          <span class="card-title">Courtside VC</span>
-          <span class="card-icon">📊</span>
-        </div>
-        <p class="card-desc">Full-featured admin dashboard for a venture capital firm — managing portfolio companies, recruiting pipelines, team scheduling, and investment analytics.</p>
-        <div class="card-tags">
-          <span class="tag">Dashboard</span>
-          <span class="tag">Bootstrap</span>
-          <span class="tag">Charts</span>
-        </div>
-        <div class="card-arrow">View project →</div>
-      </a>
-
-      <a class="card" href="/sourcerockdemo/index.html">
-        <div class="card-header">
-          <span class="card-title">Source Rock Partners</span>
-          <span class="card-icon">🏔️</span>
-        </div>
-        <p class="card-desc">Comprehensive management platform with invoicing, client communications, hiring workflows, calendar scheduling, and site analytics for a private equity firm.</p>
-        <div class="card-tags">
-          <span class="tag">Dashboard</span>
-          <span class="tag">SaaS</span>
-          <span class="tag">Bootstrap</span>
-        </div>
-        <div class="card-arrow">View project →</div>
-      </a>
-
-      <a class="card" href="/raptorgroup/index.html">
-        <div class="card-header">
-          <span class="card-title">Raptor Group</span>
-          <span class="card-icon">🦅</span>
-        </div>
-        <p class="card-desc">Portfolio management portal with employee profiles, applicant tracking, email integration, and social media management for an investment group.</p>
-        <div class="card-tags">
-          <span class="tag">Dashboard</span>
-          <span class="tag">Portfolio</span>
-          <span class="tag">Bootstrap</span>
-        </div>
-        <div class="card-arrow">View project →</div>
-      </a>
-
-      <a class="card" href="/davidrose/index.html">
-        <div class="card-header">
-          <span class="card-title">David Rose VC</span>
-          <span class="card-icon">💼</span>
-        </div>
-        <p class="card-desc">White-labeled venture capital portal featuring investor dashboards, staff scheduling, recruiting tools, and a site editor for portfolio company management.</p>
-        <div class="card-tags">
-          <span class="tag">Dashboard</span>
-          <span class="tag">VC</span>
-          <span class="tag">Bootstrap</span>
-        </div>
-        <div class="card-arrow">View project →</div>
-      </a>
-
-      <a class="card" href="/anchorage/home.html">
-        <div class="card-header">
-          <span class="card-title">Anchorage Capital Group</span>
-          <span class="card-icon">🏛️</span>
-        </div>
-        <p class="card-desc">Marketing website for a NYC-based registered investment adviser specializing in credit and special situations — featuring team profiles, office location, and contact.</p>
-        <div class="card-tags">
-          <span class="tag">Marketing Site</span>
-          <span class="tag">Bootstrap</span>
-          <span class="tag">Google Maps</span>
-        </div>
-        <div class="card-arrow">View project →</div>
-      </a>
-
-      <a class="card" href="/enrollment/index.html">
-        <div class="card-header">
-          <span class="card-title">Enrollment Simulation</span>
-          <span class="card-icon">📐</span>
-        </div>
-        <p class="card-desc">Interactive simulation comparing Stanford's existing course selection process against a new algorithmic approach, with configurable parameters and D3.js statistical visualizations.</p>
-        <div class="card-tags">
-          <span class="tag">D3.js</span>
-          <span class="tag">Simulation</span>
-          <span class="tag">Data Viz</span>
-        </div>
-        <div class="card-arrow">View project →</div>
-      </a>
-
-      <a class="card" href="/walkingcanvas/home.html">
-        <div class="card-header">
-          <span class="card-title">Walking Canvas</span>
-          <span class="card-icon">🎨</span>
-        </div>
-        <p class="card-desc">Portfolio and e-commerce showcase for Laura Scravaglieri's hand-painted clutch line — featuring custom artwork galleries, commission information, and personalization services.</p>
-        <div class="card-tags">
-          <span class="tag">Portfolio</span>
-          <span class="tag">E-commerce</span>
-          <span class="tag">Bootstrap</span>
-        </div>
-        <div class="card-arrow">View project →</div>
-      </a>
-
+      <div class="empty-state">Projects will appear here.</div>
     </div>
   </main>
 
   <footer>
     <span class="footer-name">Louis Brion</span>
     <div class="footer-links">
-      <a href="mailto:louisbrion@gmail.com">Email</a>
       <a href="https://github.com/lbrion" target="_blank" rel="noopener">GitHub</a>
     </div>
   </footer>
