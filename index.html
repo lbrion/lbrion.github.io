@@ -28,7 +28,7 @@
     }
 
     header {
-      padding: 72px 24px 64px;
+      padding: 72px 24px 48px;
       max-width: 860px;
       margin: 0 auto;
     }
@@ -38,21 +38,23 @@
       font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 400;
       letter-spacing: -0.01em;
-      margin-bottom: 16px;
+      margin-bottom: 6px;
       line-height: 1.2;
     }
 
-    .bio {
-      font-size: 1.05rem;
+    .title {
+      font-size: 0.95rem;
       color: var(--muted);
-      max-width: 480px;
-      line-height: 1.7;
+      font-weight: 400;
     }
 
     main {
       max-width: 860px;
       margin: 0 auto;
       padding: 0 24px 96px;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
     }
 
     .section-label {
@@ -61,16 +63,72 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
+    /* Bio */
+    .bio p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 640px;
+    }
+
+    .bio p + p {
+      margin-top: 14px;
+    }
+
+    /* Experience list */
+    .roles {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .role {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .role:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .role-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .role-company {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .role-title {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .role-date {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Projects */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 16px;
     }
 
-    /* Placeholder card shown when no projects exist yet */
     .empty-state {
       grid-column: 1 / -1;
       border: 1px dashed var(--border);
@@ -112,9 +170,10 @@
 
     .footer-links a:hover { color: var(--accent); }
 
-    @media (max-width: 480px) {
-      header { padding: 48px 20px 40px; }
-      main { padding: 0 20px 64px; }
+    @media (max-width: 600px) {
+      header { padding: 48px 20px 36px; }
+      main { padding: 0 20px 64px; gap: 40px; }
+      .role { flex-direction: column; gap: 4px; }
       footer { padding: 24px 20px; }
     }
   </style>
@@ -123,14 +182,59 @@
 
   <header>
     <h1 class="name">Louis Brion</h1>
-    <p class="bio">Projects coming soon.</p>
+    <p class="title">Product Builder</p>
   </header>
 
   <main>
-    <p class="section-label">Projects</p>
-    <div class="projects">
-      <div class="empty-state">Projects will appear here.</div>
-    </div>
+
+    <section class="bio">
+      <p class="section-label">About</p>
+      <p>I build products at the intersection of technology and real-world impact. Currently, I'm CEO of Lakefront Finance, a personal finance platform where I've raised $4.1M in seed funding and grown revenue across multiple 0-to-1 products — from private wealth management to decentralized finance, to public good personal finance software. I'm also co-founder of Climb NORA, a bouldering gym I took from architecture through buildout and opening, fundraising and executing a $2.2M project along the way.</p>
+      <p>Before founding, I was a PM on Microsoft's M365 US Government team, where I helped secure multiple billion-dollar government contracts and built automation that saved hundreds of hours of program management time per quarter. I studied Computer Science with a concentration in Human-Computer Interaction at Stanford, where I was also a Pear VC Fellow.</p>
+      <p>Outside of work: rock climber, marathon runner, music producer, hip hop dancer, and photographer.</p>
+    </section>
+
+    <section>
+      <p class="section-label">Experience</p>
+      <div class="roles">
+        <div class="role">
+          <div class="role-left">
+            <span class="role-company">Lakefront Finance</span>
+            <span class="role-title">Co-founder & CEO</span>
+          </div>
+          <span class="role-date">2021 – Present</span>
+        </div>
+        <div class="role">
+          <div class="role-left">
+            <span class="role-company">Climb NORA</span>
+            <span class="role-title">Co-founder</span>
+          </div>
+          <span class="role-date">2024 – Present</span>
+        </div>
+        <div class="role">
+          <div class="role-left">
+            <span class="role-company">Microsoft</span>
+            <span class="role-title">M365 US Government PM</span>
+          </div>
+          <span class="role-date">2018 – 2021</span>
+        </div>
+        <div class="role">
+          <div class="role-left">
+            <span class="role-company">Bizwise</span>
+            <span class="role-title">Co-founder & CTO</span>
+          </div>
+          <span class="role-date">2017 – 2018</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label">Projects</p>
+      <div class="projects">
+        <div class="empty-state">Projects will appear here.</div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
