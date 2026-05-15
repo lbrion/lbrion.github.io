@@ -1,0 +1,25 @@
+title: Louis Brion
+description: Documenting my journey to AI proficiency — tools, experiments, and learnings along the way.
+author: Louis Brion
+email: ""
+url: "https://louisbrion.com"
+
+theme: minima
+minima:
+  skin: dark
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .bundle/
