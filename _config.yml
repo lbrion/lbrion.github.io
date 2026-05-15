@@ -5,8 +5,7 @@ email: ""
 url: "https://louisbrion.com"
 
 theme: minima
-minima:
-  skin: dark
+show_excerpts: true
 
 plugins:
   - jekyll-feed
