@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Hey, I'm Louis — product builder, currently running [Lakefront Finance](https://lakefrontfinance.com).
+Hey, I'm Louis — product builder, currently running Lakefront, a startup seeking to empower individuals to improve their financial outcomes through access to education and credit via non-traditional creditworthiness evaluation.
 
 This blog is where I document what I'm learning as I work to get genuinely proficient with AI tools and concepts: what I'm building, what's working, what isn't, and the thinking behind it all.
 
