@@ -17,6 +17,10 @@ The fix was straightforward once diagnosed. But the point is that I caught it by
 
 That's the habit I want to build: understand each commit before it lands.
 
+## How this post got written
+
+The writing loop itself is part of what I'm experimenting with. Claude drafted the initial post based on notes I gave it, then I reviewed it line by line and called out what wasn't right — tone issues, unnecessary implementation detail, sections it added that I didn't ask for. That back-and-forth is already reasonably natural on a laptop, but the end goal is to do it from my phone: dictate what I want changed, have the agent apply it, and review the diff without needing to sit at a desk. That's still further out, but today's editing session was essentially a manual version of that loop, and it worked well enough to be worth refining.
+
 ## Things I want to explore
 
 **Multi-session workflows.** I'm also spinning up a data analysis project on Riftbound (a card game) in parallel. That project — pulling card data, doing matchup analysis, maybe some ML — is a better candidate for multi-session coding than this blog. I want to figure out how to hand off context between sessions without losing state, and how to structure a project so parallel agents don't step on each other.
