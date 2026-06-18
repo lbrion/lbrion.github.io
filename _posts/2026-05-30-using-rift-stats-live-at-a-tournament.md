@@ -3,6 +3,7 @@ layout: post
 title: "Using Rift Stats live at a tournament, and where it fell short"
 date: 2026-05-30
 categories: ai-dev
+tags: [boundrift]
 ---
 
 Today was a tournament day, which meant less time building and more time actually using what I've built. That's a useful kind of test.

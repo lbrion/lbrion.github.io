@@ -3,6 +3,7 @@ layout: post
 title: "Rift Stats becomes a real tool: live event querying and what that means"
 date: 2026-05-29
 categories: ai-dev
+tags: [boundrift]
 ---
 
 A productive couple of days, and ones where the project shifted in a direction I didn't fully anticipate going in.

@@ -3,6 +3,7 @@ layout: post
 title: "Data pipelines, a committed .env, and a new writing tool"
 date: 2026-05-17
 categories: ai-dev
+tags: [boundrift]
 ---
 
 I took yesterday off sick, so today was about getting back into it. Most of the session went into the Riftbound stats project — a card game data analysis side project I'm running in parallel with the blog — but I also set up something new for the writing workflow itself.

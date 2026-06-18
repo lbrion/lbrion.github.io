@@ -3,6 +3,7 @@ layout: post
 title: "Four terminals, parallel goals, and the limits of orchestration"
 date: 2026-06-14
 categories: ai-dev
+tags: [boundrift]
 ---
 
 The pace of development has accelerated noticeably since upgrading my Claude plan and leaning into Fable's /goal function. The past few days have been some of the most productive of this whole project, and also the ones where I've started to feel the edges of what I can actually manage.

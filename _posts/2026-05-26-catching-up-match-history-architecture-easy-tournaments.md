@@ -3,6 +3,7 @@ layout: post
 title: "Catching up: match history architecture and finding easy tournaments"
 date: 2026-05-26
 categories: ai-dev
+tags: [boundrift]
 ---
 
 A few days lighter than usual — some illness and weekend commitments — but not completely idle. I was able to push a few features forward on projects over the weekend without much active intervention, which is its own kind of useful data point about how far along these projects are.
