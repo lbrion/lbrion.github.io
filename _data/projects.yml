@@ -1,0 +1,7 @@
+# Featured projects, rendered in the home page carousel and on /projects/.
+# Add new entries here — both the carousel and the Projects page read from this file.
+- title: BoundRift
+  description: "Riftbound tournament stats and analytics: matchup win rates, Elo rankings, full event coverage, and a personal match tracker."
+  url: https://boundrift.com
+  image: /assets/img/boundrift-screenshot.png
+  external: true
