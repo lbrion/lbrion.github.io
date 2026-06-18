@@ -3,6 +3,7 @@ layout: post
 title: "Deploying Rift Stats, a database refactor, and Fable's agentic loops"
 date: 2026-06-11
 categories: ai-dev
+tags: [boundrift]
 ---
 
 A few busy days covering more ground than usual — a proper Railway deployment, a database refactor, and a new model that's changing how I think about the work.

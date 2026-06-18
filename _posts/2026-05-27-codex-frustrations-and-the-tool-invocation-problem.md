@@ -3,6 +3,7 @@ layout: post
 title: "Codex frustrations and the tool invocation problem"
 date: 2026-05-27
 categories: ai-dev
+tags: [boundrift]
 ---
 
 Today was mostly friction, which is useful in its own way.

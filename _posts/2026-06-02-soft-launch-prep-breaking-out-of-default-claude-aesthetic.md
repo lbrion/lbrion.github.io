@@ -3,6 +3,7 @@ layout: post
 title: "Soft launch prep: breaking out of the default Claude aesthetic"
 date: 2026-06-02
 categories: ai-dev
+tags: [boundrift]
 ---
 
 A heads-down building day, mostly in the zone on features and data manipulation. Rift Stats is getting close to something I'd feel comfortable showing people.

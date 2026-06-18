@@ -7,6 +7,11 @@ url: "https://louisbrion.com"
 theme: minima
 show_excerpts: true
 
+header_pages:
+  - projects.md
+  - about.md
+  - search.md
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
