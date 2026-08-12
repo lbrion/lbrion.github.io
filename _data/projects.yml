@@ -5,3 +5,7 @@
   url: https://boundrift.com
   image: /assets/img/boundrift-screenshot.png
   external: true
+- title: Climb Plan
+  description: "A mobile-first PWA that generates personalized, deterministic bouldering training plans from your assessment, goals, and available equipment."
+  url: https://github.com/lbrion/climbing-training
+  external: true
