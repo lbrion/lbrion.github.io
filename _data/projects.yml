@@ -8,4 +8,5 @@
 - title: Climb Plan
   description: "A mobile-first PWA that generates personalized, deterministic bouldering training plans from your assessment, goals, and available equipment."
   url: https://github.com/lbrion/climbing-training
+  image: /assets/img/climb-plan-screenshot.png
   external: true

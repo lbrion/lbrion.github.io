@@ -20,6 +20,8 @@ Built solo with AI agents over a few weeks. The blog has the full build journal,
 
 ## Climb Plan
 
+[![Climb Plan screenshot](/assets/img/climb-plan-screenshot.png)](https://github.com/lbrion/climbing-training)
+
 A mobile-first PWA that generates personalized bouldering training plans - deterministic and reproducible, built from a pure functional TypeScript core with no runtime AI calls. Same inputs, same plan, every time. It doubles as a demonstration of building a production app end to end with agentic AI workflows, from event-sourced state to Playwright end-to-end tests.
 
 **[View on GitHub →](https://github.com/lbrion/climbing-training)**
